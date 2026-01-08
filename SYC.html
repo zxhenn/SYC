@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Life - Church Dashboard</title>
+    <link rel="stylesheet" href="SYC.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar: Fixed top bar that follows user -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-orange">SMART</span>LIFE
+        </div>
+
+        <div class="menu-toggle">
+            <div class="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dropdown Menu: Hidden by default, shown on burger click -->
+    <div class="menu-dropdown">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Section 1: Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content animate-fade-in">
+            <h1>
+                <strong>touching</strong> <span class="light">and</span> <strong>building</strong> <span
+                    class="light">lives</span>
+            </h1>
+
+            <div class="scripture-text">
+                <p>The thief comes only to steal and kill and destroy.</p>
+                <p>I have come that they may have life and have it to the <strong class="orange-text">FULL</strong>.</p>
+            </div>
+        </div>
+
+        <div class="hero-footer animate-slide-up">
+            <span>Connect</span>
+            <span class="dot">•</span>
+            <span>Grow</span>
+            <span class="dot">•</span>
+            <span>Serve</span>
+        </div>
+    </section>
+
+    <!-- Section 2: Ministries Grid Section -->
+    <section id="about" class="about-section">
+        <div class="ministry-grid">
+            <!-- Row 1 -->
+            <div class="ministry-card">
+                <div class="ministry-image">
+                    <img src="/assets/images/Dashboard/J12.png" alt="J12 Ministry">
+                </div>
+                <span class="ministry-label orange">J12</span>
+            </div>
+
+            <div class="ministry-card">
+                <div class="ministry-image">
+                    <img src="placeholder-campus.jpg" alt="Campus Ministry">
+                </div>
+                <span class="ministry-label">CAMPUS</span>
+            </div>
+
+            <div class="ministry-card">
+                <div class="ministry-image">
+                    <img src="placeholder-crossover.jpg" alt="Crossover Ministry">
+                </div>
+                <span class="ministry-label">CROSSOVER</span>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="ministry-card">
+                <div class="ministry-image">
+                    <img src="placeholder-women.jpg" alt="Women Ministry">
+                </div>
+                <span class="ministry-label">WOMEN</span>
+            </div>
+
+            <div class="ministry-card">
+                <div class="ministry-image">
+                    <img src="placeholder-men.jpg" alt="Men Ministry">
+                </div>
+                <span class="ministry-label">MEN</span>
+            </div>
+
+            <div class="ministry-card">
+                <div class="ministry-image">
+                    <img src="placeholder-couples.jpg" alt="Couples Ministry">
+                </div>
+                <span class="ministry-label">COUPLES</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="section-content">
+            <h2>Gallery</h2>
+            <p>Explore moments of worship, fellowship, and community service that capture the heart of our ministry.</p>
+        </div>
+    </section>
+
+    <!-- Section 4: Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-content">
+            <h2>Get Involved</h2>
+            <p>Join us in making a difference. Whether through volunteering, giving, or simply attending, there's a
+                place for you here.</p>
+        </div>
+    </section>
+
+    <!-- Footer: Social media icons -->
+    <footer class="bottom-navbar">
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 SmartLife Church. All rights reserved.</p>
+    </footer>
+
+    <!-- Script: Burger menu toggle functionality -->
+    <script>
+        const burgerButton = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu-dropdown');
+
+        burgerButton.addEventListener('click', function () {
+            menu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.menu-dropdown a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

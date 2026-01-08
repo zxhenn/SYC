@@ -1,0 +1,407 @@
+/* =========================================
+   1. GLOBAL RESET & BASE STYLES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Smooth scrolling for anchor links */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #111;
+}
+
+/* =========================================
+   2. NAVIGATION BAR (Fixed/Sticky)
+   ========================================= */
+.navbar {
+    position: fixed;
+    /* Fixed position so it follows the user */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.719);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    z-index: 1000;
+    /* Highest z-index to stay on top */
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.logo-orange {
+    color: #FF9900;
+    font-weight: 700;
+}
+
+/* Burger Button Container */
+.menu-toggle {
+    background-color: #FF9900;
+    height: 100%;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background-color: #e68a00;
+}
+
+/* Burger Icon Lines */
+.burger-icon span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* =========================================
+   3. DROPDOWN MENU
+   ========================================= */
+.menu-dropdown {
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 999;
+}
+
+.menu-dropdown.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.menu-dropdown ul {
+    list-style: none;
+}
+
+.menu-dropdown li a {
+    display: block;
+    padding: 20px 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.menu-dropdown li a:hover {
+    background-color: #FF9900;
+    color: black;
+}
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    padding-top: 80px;
+    /* Account for fixed navbar */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2073&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 10;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 strong {
+    font-weight: 700;
+}
+
+.scripture-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.orange-text {
+    color: #FF9900;
+}
+
+.hero-footer {
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.dot {
+    color: #FF9900;
+    font-size: 1.2rem;
+}
+
+/* =========================================
+   5. CONTENT SECTIONS
+   ========================================= */
+.about-section,
+.gallery-section,
+.contact-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 50px;
+}
+
+.about-section {
+    background-color: #0a0a0a;
+}
+
+/* Ministry Grid Styles */
+.ministry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.ministry-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.ministry-card:hover {
+    transform: scale(1.05);
+}
+
+.ministry-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FF9900 0%, #cc7a00 100%);
+    position: relative;
+}
+
+.ministry-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.ministry-card:hover .ministry-image img {
+    opacity: 1;
+}
+
+/* Placeholder styling when no image */
+.ministry-image img[src^="placeholder"] {
+    opacity: 0;
+}
+
+.ministry-label {
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.ministry-label.orange {
+    color: #FF9900;
+}
+
+.gallery-section {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+}
+
+.contact-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+}
+
+.section-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.section-content h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #FF9900;
+}
+
+.section-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* =========================================
+   6. FOOTER / BOTTOM NAVBAR
+   ========================================= */
+.bottom-navbar {
+    background-color: #000;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #FF9900;
+    border-radius: 50%;
+    color: #FF9900;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #FF9900;
+    color: #000;
+    transform: translateY(-5px);
+}
+
+.copyright {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   7. ANIMATIONS
+   ========================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Opening animations when page loads */
+.animate-fade-in {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 1s ease-out 0.5s forwards;
+    opacity: 0;
+    /* Start invisible, animation will show it */
+}
+
+/* =========================================
+   8. RESPONSIVE (Mobile)
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        padding-left: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+
+    .menu-dropdown {
+        width: 100%;
+    }
+
+    .section-content h2 {
+        font-size: 2rem;
+    }
+
+    .section-content p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
+    .about-section,
+    .gallery-section,
+    .contact-section {
+        padding: 80px 20px;
+    }
+}
