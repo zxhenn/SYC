@@ -9,13 +9,12 @@
 
 html {
     scroll-behavior: smooth;
-    /* Smooth scrolling for anchor links */
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
     color: white;
-    background-color: #111;
+    background-color: #0a0a0a;
 }
 
 /* =========================================
@@ -23,21 +22,18 @@ body {
    ========================================= */
 .navbar {
     position: fixed;
-    /* Fixed position so it follows the user */
     top: 0;
     left: 0;
     width: 100%;
     height: 80px;
-    background-color: rgba(0, 0, 0, 0.719);
+    background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 50px;
     z-index: 1000;
-    /* Highest z-index to stay on top */
 }
 
-/* Logo Styling */
 .logo {
     font-size: 18px;
     letter-spacing: 3px;
@@ -50,7 +46,6 @@ body {
     font-weight: 700;
 }
 
-/* Burger Button Container */
 .menu-toggle {
     background-color: #FF9900;
     height: 100%;
@@ -69,7 +64,6 @@ body {
     background-color: #e68a00;
 }
 
-/* Burger Icon Lines */
 .burger-icon span {
     display: block;
     width: 30px;
@@ -125,7 +119,6 @@ body {
     height: 100vh;
     width: 100%;
     padding-top: 80px;
-    /* Account for fixed navbar */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
         url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2073&auto=format&fit=crop');
     background-size: cover;
@@ -182,23 +175,17 @@ body {
 }
 
 /* =========================================
-   5. CONTENT SECTIONS
+   5. MINISTRIES SECTION
    ========================================= */
-.about-section,
-.gallery-section,
-.contact-section {
+.about-section {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 100px 50px;
-}
-
-.about-section {
     background-color: #0a0a0a;
 }
 
-/* Ministry Grid Styles */
 .ministry-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -240,7 +227,6 @@ body {
     opacity: 1;
 }
 
-/* Placeholder styling when no image */
 .ministry-image img[src^="placeholder"] {
     opacity: 0;
 }
@@ -257,74 +243,171 @@ body {
     color: #FF9900;
 }
 
-.gallery-section {
-    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+/* =========================================
+   6. EVENTS CAROUSEL SECTION
+   ========================================= */
+.events-section {
+    min-height: 60vh;
+    position: relative;
+    overflow: hidden;
 }
 
-.contact-section {
-    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+.events-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-transform: lowercase;
+    z-index: 10;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-.section-content {
-    text-align: center;
-    max-width: 800px;
+.events-carousel {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
 }
 
-.section-content h2 {
-    font-size: 3rem;
-    margin-bottom: 30px;
-    color: #FF9900;
+.events-slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
 }
 
-.section-content p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    opacity: 0.9;
+.event-slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    filter: grayscale(100%);
+}
+
+.event-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #FF9900;
+    transform: scale(1.2);
+}
+
+.indicator:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* =========================================
-   6. FOOTER / BOTTOM NAVBAR
+   7. CONNECT SECTION
+   ========================================= */
+.connect-section {
+    min-height: 60vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 100px 50px;
+    background-color: #0a0a0a;
+}
+
+.connect-content {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.logo-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #FF9900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo-circle img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+/* =========================================
+   8. FOOTER
    ========================================= */
 .bottom-navbar {
-    background-color: #000;
-    padding: 40px 20px;
-    text-align: center;
+    background: linear-gradient(135deg, #FF9900 0%, #cc7a00 100%);
+    padding: 20px 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: black;
+}
+
+.footer-logo .logo-orange {
+    color: black;
+    font-weight: 700;
 }
 
 .social-icons {
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 20px;
+    gap: 20px;
 }
 
 .social-icons a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #FF9900;
-    border-radius: 50%;
-    color: #FF9900;
+    color: #000;
     font-size: 1.3rem;
-    text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-    background-color: #FF9900;
-    color: #000;
-    transform: translateY(-5px);
-}
-
-.copyright {
-    color: #666;
-    font-size: 0.9rem;
+    color: #333;
+    transform: translateY(-3px);
 }
 
 /* =========================================
-   7. ANIMATIONS
+   9. ANIMATIONS
    ========================================= */
 @keyframes fadeIn {
     from {
@@ -362,7 +445,6 @@ body {
     }
 }
 
-/* Opening animations when page loads */
 .animate-fade-in {
     animation: fadeInUp 1s ease-out forwards;
 }
@@ -370,11 +452,10 @@ body {
 .animate-slide-up {
     animation: slideUp 1s ease-out 0.5s forwards;
     opacity: 0;
-    /* Start invisible, animation will show it */
 }
 
 /* =========================================
-   8. RESPONSIVE (Mobile)
+   10. RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
     .navbar {
@@ -390,18 +471,32 @@ body {
         width: 100%;
     }
 
-    .section-content h2 {
-        font-size: 2rem;
+    .ministry-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
     }
 
-    .section-content p {
-        font-size: 1rem;
-        padding: 0 20px;
-    }
-
-    .about-section,
-    .gallery-section,
-    .contact-section {
+    .about-section {
         padding: 80px 20px;
+    }
+
+    .events-title {
+        font-size: 1.5rem;
+    }
+
+    .connect-section {
+        padding: 50px 20px;
+    }
+
+    .logo-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
     }
 }
